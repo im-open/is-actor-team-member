@@ -81,7 +81,7 @@ jobs:
       - name: '-------------------------------------------------------------------------------------------------------'
         run: echo ""
 
-      - name: Actor is in list of allowed users
+      - name: "Should Succeed: Actor is in list of allowed users"
         if: always()
         id: should-succeed
         continue-on-error: true
@@ -106,7 +106,7 @@ jobs:
       - name: '-------------------------------------------------------------------------------------------------------'
         run: echo ""
 
-      - name: Actor is not in list of allowed users
+      - name: "Should Fail: Actor is not in list of allowed users"
         if: always()
         id: should-fail
         continue-on-error: true
@@ -130,7 +130,7 @@ jobs:
       - name: '-------------------------------------------------------------------------------------------------------'
         run: echo ""
 
-      - name: Actor is not in list of allowed users because zero teams are listed
+      - name: "Should Fail: Actor is not in list of allowed users because zero teams are listed"
         if: always()
         id: should-fail-too
         continue-on-error: true
