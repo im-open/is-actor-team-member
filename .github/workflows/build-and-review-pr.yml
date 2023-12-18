@@ -82,7 +82,7 @@ jobs:
         id: should-succeed
         uses: ./
         with:
-          github-actor: ahernandez411
+          github-actor: im-pipeline-bot
           github-organization: im-open
           github-team-slugs: |
             [
@@ -106,7 +106,7 @@ jobs:
         id: should-fail 
         uses: ./
         with:
-          github-actor: invalid-username
+          github-actor: im-fake-bot
           github-organization: im-open
           github-team-slugs: |
             [
@@ -129,7 +129,7 @@ jobs:
         id: should-fail-too
         uses: ./
         with:
-          github-actor: ${{ github.actor }}
+          github-actor: im-pipeline-bot
           github-organization: im-open
           github-team-slugs: "[]"
           github-token: ${{ secrets.PIPELINE_BOT_PAT }}
