@@ -28,6 +28,9 @@ async function run() {
   }
 
   for (const team of authorizedTeams) {
+    if (isActorInTeam) {
+      break;
+    }
     core.info(`Checking if user ${githubActor} is a member of team ${githubOrg}/${team}`);
     await octokit
       .paginate(octokit.rest.teams.listMembersInOrg, {
