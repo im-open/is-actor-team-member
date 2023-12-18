@@ -22,6 +22,11 @@ async function run() {
   core.info('');
 
   let isActorInTeam = false;
+  if (authorizedTeams.length === 0) {
+    core.setFailed('No authorized teams provided, cannot perform check!.');
+    return;
+  }
+
   for (const team of authorizedTeams) {
     core.info(`Checking if user ${githubActor} is a member of team ${githubOrg}/${team}`);
     await octokit
