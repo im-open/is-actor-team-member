@@ -1,6 +1,10 @@
 name: Build and Review PR
 run-name: 'Build and Review PR #${{ github.event.pull_request.number }}'
 
+concurrency:
+  group: github-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token
   #
