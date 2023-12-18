@@ -86,6 +86,7 @@ jobs:
           github-organization: im-open
           github-team-slugs: |
             [
+              "swat",
               "infra-purple"
             ]
           github-token: ${{ secrets.PIPELINE_BOT_PAT }}

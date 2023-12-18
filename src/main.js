@@ -19,6 +19,7 @@ async function run() {
   core.info(`- github-team-slugs: ${authorizedTeams}`);
   core.info(`- github-actor: ${githubActor}`);
   core.info(`- github-organization: ${githubOrg}`);
+  core.info('');
 
   let isActorInTeam = false;
   for (const team of authorizedTeams) {
@@ -46,6 +47,7 @@ async function run() {
   if (!isActorInTeam) {
     core.setFailed(`User ${githubActor} is not an authorized member of any of the teams`);
   }
+  core.info('');
 }
 
 run();
