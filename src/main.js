@@ -16,7 +16,7 @@ async function run() {
   const octokit = github.getOctokit(token);
 
   core.info('Inputs:');
-  core.info(`- github-team-slugs: ${authorizedTeamsInput}`);
+  core.info(`- github-team-slugs: ${authorizedTeams}`);
   core.info(`- github-actor: ${githubActor}`);
   core.info(`- github-organization: ${githubOrg}`);
 

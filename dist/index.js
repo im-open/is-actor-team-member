@@ -23451,7 +23451,7 @@ async function run() {
   const githubOrg = core.getInput('github-organization', requiredArgOptions);
   const octokit = github.getOctokit(token);
   core.info('Inputs:');
-  core.info(`- github-team-slugs: ${authorizedTeamsInput}`);
+  core.info(`- github-team-slugs: ${authorizedTeams}`);
   core.info(`- github-actor: ${githubActor}`);
   core.info(`- github-organization: ${githubOrg}`);
   let isActorInTeam = false;
