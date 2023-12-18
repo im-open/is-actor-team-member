@@ -1,10 +1,10 @@
-# javascript-action-template
+# Is Actor Team Member
 
 This template can be used to quickly start a new custom js action repository.  Click the `Use this template` button at the top to get started.
 
 ## Index <!-- omit in toc -->
 
-- [javascript-action-template](#javascript-action-template)
+- [Is Actor Team Member](#is-actor-team-member)
   - [Inputs](#inputs)
   - [Outputs](#outputs)
   - [Usage Examples](#usage-examples)
@@ -20,31 +20,8 @@ This template can be used to quickly start a new custom js action repository.  C
 ## TODOs <!-- omit in toc -->
 
 - README.md
-  - [ ] Update the Inputs section with the correct action inputs
-  - [ ] Update the Outputs section with the correct action outputs
   - [ ] Update the Usage Example section with the correct usage
-- package.json
-  - [ ] Update the `name` with the new action value
-- src/main.js
-  - [ ] Implement your custom javascript action
-- action.yml
-  - [ ] Fill in the correct name, description, inputs and outputs
-- .prettierrc.json
-  - [ ] Update any preferences you might have
-- CODEOWNERS
-  - [ ] Update as appropriate
 - Repository Settings
-  - [ ] On the *Options* tab check the box to *Automatically delete head branches*
-  - [ ] On the *Options* tab update the repository's visibility (must be done by an org owner)
-  - [ ] On the *Branches* tab add a branch protection rule
-    - [ ] Check *Require pull request reviews before merging*
-    - [ ] Check *Dismiss stale pull request approvals when new commits are pushed*
-    - [ ] Check *Require review from Code Owners*
-    - [ ] Check *Require status checks to pass before merging*
-    - [ ] Check *Require branches to be up to date before merging*
-    - [ ] Add `build` to the list of required status checks.  This will need to be done after the first `build` workflow runs.
-    - [ ] Check *Do not allow bypassing the above settings*
-  - [ ] On the *Manage Access* tab add the appropriate groups
 - About Section (accessed on the main page of the repo, click the gear icon to edit)
   - [ ] The repo should have a short description of what it is for
   - [ ] Add one of the following topic tags:
@@ -69,15 +46,12 @@ This template can be used to quickly start a new custom js action repository.  C
 
 ## Inputs
 
-| Parameter | Is Required | Default | Description           |
-|-----------|-------------|---------|-----------------------|
-| `input`   | true        |         | Description goes here |
-
-## Outputs
-
-| Output   | Description           | Possible Values |
-|----------|-----------------------|-----------------|
-| `output` | Description goes here |                 |
+| Parameter             | Is Required | Default | Description                                     |
+|-----------------------|-------------|---------|-------------------------------------------------|
+| `github-actor`        | true        |         | The GitHub actor to check for membership        |
+| `github-organization` | true        |         | The GitHub organization to check for membership |
+| `github-team-slugs`   | true        |         | The GitHub team slugs to check for membership   |
+| `github-token`        | true        |         | The GitHub token to use for authentication      |              
 
 ## Usage Examples
 
