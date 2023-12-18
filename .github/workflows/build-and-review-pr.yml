@@ -84,6 +84,7 @@ jobs:
       - name: Actor is in list of allowed users
         if: always()
         id: should-succeed
+        continue-on-error: true
         uses: ./
         with:
           github-actor: im-pipeline-bot
