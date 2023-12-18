@@ -23464,17 +23464,17 @@ async function run() {
         team_slug: team
       })
       .then(members => {
-        core.info(`Team ${githubOrg}/${team} has ${members.length} members`);
+        core.info(`- Team ${githubOrg}/${team} has ${members.length} members`);
         for (const member of members) {
           if (member.login === githubActor) {
-            core.info(`User ${githubActor} is a member of team ${githubOrg}/${team}`);
+            core.info(`- User ${githubActor} is a member of team ${githubOrg}/${team}`);
             isActorInTeam = true;
             break;
           }
         }
       })
       .catch(error => {
-        core.info(`Failed to list team members. Error code: ${error.message}.`);
+        core.info(`- Failed to list team members. Error code: ${error.message}.`);
       });
   }
   if (!isActorInTeam) {
