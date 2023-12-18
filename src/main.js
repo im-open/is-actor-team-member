@@ -8,17 +8,17 @@ const requiredArgOptions = {
 };
 
 async function run() {
-  const token = core.getInput("github-token", requiredArgOptions);
-  const authorizedTeamsInput = core.getInput("github-team-slugs", requiredArgOptions).toLowerCase();
+  const token = core.getInput('github-token', requiredArgOptions);
+  const authorizedTeamsInput = core.getInput('github-team-slugs', requiredArgOptions).toLowerCase();
   const authorizedTeams = JSON.parse(authorizedTeamsInput);
-  const githubActor = core.getInput("github-actor", requiredArgOptions);
-  const githubOrg = core.getInput("github-organization", requiredArgOptions);
-  const octokit = github.getOctokit(token);  
+  const githubActor = core.getInput('github-actor', requiredArgOptions);
+  const githubOrg = core.getInput('github-organization', requiredArgOptions);
+  const octokit = github.getOctokit(token);
 
   let isActorInTeam = false;
   for (const team in authorizedTeams) {
-    await octokit.paginate(
-      octokit.rest.teams.listMembersInOrg, {
+    await octokit
+      .paginate(octokit.rest.teams.listMembersInOrg, {
         org: githubOrg,
         team_slug: team
       })
@@ -39,7 +39,7 @@ async function run() {
     core.setFailed(`User ${githubActor} is not an authorized member of any of the teams`);
   } else {
     core.info(`User ${githubActor} is an authorized member of one of the teams`);
-  } 
+  }
 }
 
 run();
