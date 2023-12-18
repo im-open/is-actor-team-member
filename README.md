@@ -17,33 +17,6 @@ This template can be used to quickly start a new custom js action repository.  C
   - [Code of Conduct](#code-of-conduct)
   - [License](#license)
 
-## TODOs <!-- omit in toc -->
-
-- README.md
-  - [ ] Update the Usage Example section with the correct usage
-- Repository Settings
-- About Section (accessed on the main page of the repo, click the gear icon to edit)
-  - [ ] The repo should have a short description of what it is for
-  - [ ] Add one of the following topic tags:
-    | Topic Tag       | Usage                                    |
-    |-----------------|------------------------------------------|
-    | az              | For actions related to Azure             |
-    | code            | For actions related to building code     |
-    | certs           | For actions related to certificates      |
-    | db              | For actions related to databases         |
-    | git             | For actions related to Git               |
-    | iis             | For actions related to IIS               |
-    | microsoft-teams | For actions related to Microsoft Teams   |
-    | svc             | For actions related to Windows Services  |
-    | jira            | For actions related to Jira              |
-    | meta            | For actions related to running workflows |
-    | pagerduty       | For actions related to PagerDuty         |
-    | test            | For actions related to testing           |
-    | tf              | For actions related to Terraform         |
-  - [ ] Add any additional topics for an action if they apply
-  - [ ] The Packages and Environments boxes can be unchecked
-- Search for any remaining TODOs and address them.
-
 ## Inputs
 
 | Parameter             | Is Required | Default | Description                                     |
@@ -57,15 +30,25 @@ This template can be used to quickly start a new custom js action repository.  C
 
 ```yml
 jobs:
-  jobname: # TODO: fix the job name
-    runs-on: ubuntu-20.04
+  deploy-to-prod:
+    runs-on: [self-hosted, im-linux]
     steps:
       - uses: actions/checkout@v3
 
-      - name: ''
-        uses: im-open/thisrepo@v1.0.0 # TODO:  fix the action name
+      - name: Check if Actor is a Member of one of the teams
+        uses: im-open/is-actor-team-member@v1.0.0
         with:
-          input: ''
+          github-actor: ${{ github.actor }}
+          github-organization: my-github-org
+          github-team-slugs: |
+            [
+              "team-one",
+              "team-two"
+            ]
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Deploy the Code
+        run: |
 ```
 
 ## Contributing

@@ -1,5 +1,5 @@
-const core = require('@actions/core'); // TODO:  Run `npm install @actions/core` to get latest version
-const github = require('@actions/github');  // TODO:  run an npm install for this if using
+const core = require('@actions/core');
+const github = require('@actions/github');
 
 // When used, this requiredArgOptions will cause the action to error if a value has not been provided.
 const requiredArgOptions = {
