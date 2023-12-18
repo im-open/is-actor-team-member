@@ -107,7 +107,8 @@ jobs:
 
       - name: Actor is not in list of allowed users
         if: always()
-        id: should-fail 
+        id: should-fail
+        continue-on-error: true
         uses: ./
         with:
           github-actor: im-fake-bot
@@ -131,6 +132,7 @@ jobs:
       - name: Actor is not in list of allowed users because zero teams are listed
         if: always()
         id: should-fail-too
+        continue-on-error: true
         uses: ./
         with:
           github-actor: im-pipeline-bot
