@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Check if Actor is a Member of one of the teams
-        uses: im-open/is-actor-team-member@v1.0.0
+        uses: im-open/is-actor-team-member@v1.0.1
         with:
           github-actor: ${{ github.actor }}
           github-organization: my-github-org
