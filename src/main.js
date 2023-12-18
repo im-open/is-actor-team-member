@@ -37,8 +37,10 @@ async function run() {
 
   if (!isActorInTeam) {
     core.setFailed(`User ${githubActor} is not an authorized member of any of the teams`);
+    console.log(`ERROR: User ${githubActor} is not an authorized member of any of the teams`);
   } else {
     core.info(`User ${githubActor} is an authorized member of one of the teams`);
+    console.log(`SUCCESS: User ${githubActor} is an authorized member of one of the teams`)
   }
 }
 
