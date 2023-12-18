@@ -46,6 +46,9 @@ async function run() {
             break;
           }
         }
+        if (!isActorInTeam) {
+          core.info(`- User ${githubActor} is not a member of team ${githubOrg}/${team}`);
+        }
       })
       .catch(error => {
         core.info(`- Failed to list team members. Error code: ${error.message}.`);
