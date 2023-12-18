@@ -1,15 +1,20 @@
-name: 'JavaScript Action Template'
+name: 'Is Actor a Team Member'
 
-description: 'Add description here'
+description: 'Checks if the actor is a member of the team'
 
 inputs:
-  input-1:
-    description: 'Add a description here'
+  github-actor:
     required: true
-
-outputs:
-  output-1:
-    description: 'Add a description here'
+    description: The GitHub actor to check for membership
+  github-organization:
+    required: true
+    description: The GitHub organization to check for membership
+  github-team-slugs:
+    required: true
+    description: The GitHub team slugs to check for membership
+  github-token:
+    required: true
+    description: The GitHub token to use for authentication      
 
 runs:
   using: 'node16'
