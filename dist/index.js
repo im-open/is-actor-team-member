@@ -23447,11 +23447,14 @@ async function run() {
   const token = core.getInput('github-token', requiredArgOptions);
   const authorizedTeamsInput = core.getInput('github-team-slugs', requiredArgOptions).toLowerCase();
   const authorizedTeams = JSON.parse(authorizedTeamsInput);
-  const authorizedUsersInput = core.getInput('github-usernames');
-  const authorizedUsers = JSON.parse(authorizedUsersInput.toLowerCase());
   const githubActor = core.getInput('github-actor', requiredArgOptions);
   const githubOrg = core.getInput('github-organization', requiredArgOptions);
   const octokit = github.getOctokit(token);
+  const authorizedUsersInput = core.getInput('github-usernames');
+  let authorizedUsers = [];
+  if (authorizedUsersInput) {
+    authorizedUsers = JSON.parse(authorizedUsersInput.toLowerCase());
+  }
   core.info('Inputs:');
   core.info(`- github-team-slugs: ${authorizedTeams}`);
   core.info(`- github-actor: ${githubActor}`);
