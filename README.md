@@ -19,12 +19,13 @@ This template can be used to quickly start a new custom js action repository.  C
 
 ## Inputs
 
-| Parameter             | Is Required | Default | Description                                     |
-|-----------------------|-------------|---------|-------------------------------------------------|
-| `github-actor`        | true        |         | The GitHub actor to check for membership        |
-| `github-organization` | true        |         | The GitHub organization to check for membership |
-| `github-team-slugs`   | true        |         | The GitHub team slugs to check for membership   |
-| `github-token`        | true        |         | The GitHub token to use for authentication      |              
+| Parameter             | Is Required | Default | Description                                                        |
+|-----------------------|-------------|---------|--------------------------------------------------------------------|
+| `github-actor`        | true        |         | The GitHub actor to check for membership                           |
+| `github-organization` | true        |         | The GitHub organization to check for membership                    |
+| `github-team-slugs`   | true        |         | The GitHub team slugs to check for membership                      |
+| `github-token`        | true        |         | The GitHub token to use for authentication                         |
+| `github-usernames`    | false       |         | If github username is not part of team, they can be specified here |              
 
 ## Usage Examples
 
@@ -36,7 +37,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Check if Actor is a Member of one of the teams
-        uses: im-open/is-actor-team-member@v1.0.1
+        uses: im-open/is-actor-team-member@v1.1.0
         with:
           github-actor: ${{ github.actor }}
           github-organization: my-github-org
@@ -44,6 +45,10 @@ jobs:
             [
               "team-one",
               "team-two"
+            ]
+          github-usernames: |
+            [
+              "super-duper-user"
             ]
           github-token: ${{ secrets.GITHUB_TOKEN }}
       
