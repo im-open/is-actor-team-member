@@ -12,7 +12,7 @@ async function run() {
   const authorizedTeamsInput = core.getInput('github-team-slugs', requiredArgOptions).toLowerCase();
   const authorizedTeams = JSON.parse(authorizedTeamsInput);
 
-  const authorizedUsersInput = core.getInput('github-usernames', requiredArgOptions).toLowerCase();
+  const authorizedUsersInput = core.getInput('github-usernames').toLowerCase();
   const authorizedUsers = JSON.parse(authorizedUsersInput);
 
   const githubActor = core.getInput('github-actor', requiredArgOptions);
