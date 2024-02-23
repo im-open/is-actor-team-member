@@ -11,6 +11,10 @@ async function run() {
   const token = core.getInput('github-token', requiredArgOptions);
   const authorizedTeamsInput = core.getInput('github-team-slugs', requiredArgOptions).toLowerCase();
   const authorizedTeams = JSON.parse(authorizedTeamsInput);
+
+  const authorizedUsersInput = core.getInput('github-usernames', requiredArgOptions).toLowerCase();
+  const authorizedUsers = JSON.parse(authorizedUsersInput);
+
   const githubActor = core.getInput('github-actor', requiredArgOptions);
   const githubOrg = core.getInput('github-organization', requiredArgOptions);
   const octokit = github.getOctokit(token);
@@ -19,6 +23,7 @@ async function run() {
   core.info(`- github-team-slugs: ${authorizedTeams}`);
   core.info(`- github-actor: ${githubActor}`);
   core.info(`- github-organization: ${githubOrg}`);
+  core.info(`- github-usernames: ${authorizedUsers}`);
   core.info('');
 
   let isActorInTeam = false;
@@ -56,7 +61,18 @@ async function run() {
   }
 
   if (!isActorInTeam) {
-    core.setFailed(`User ${githubActor} is not an authorized member of any of the teams`);
+    core.info(`Checking if user ${githubActor} is an authorized user`);
+    for (const authorizedUser of authorizedUsers) {
+      if (authorizedUser === githubActor) {
+        core.info(`- User ${githubActor} is an authorized user`);
+        isActorInTeam = true;
+        break;
+      }
+    }
+
+    if (!isActorInTeam) {
+      core.setFailed(`User ${githubActor} is not authorized!`);
+    }
   }
   core.info('');
 }

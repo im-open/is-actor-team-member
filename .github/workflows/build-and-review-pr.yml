@@ -145,3 +145,32 @@ jobs:
       - name: Then the outcome should be failure too
         if: always()
         run: ./test/assert-values-match.sh --name "step outcome" --expected "failure" --actual "${{ steps.should-fail-too.outcome }}"
+
+
+      #--------------------------------------
+      # Actor is NOT in authorized team slugs but is in authorized users
+      #--------------------------------------
+      - name: '-------------------------------------------------------------------------------------------------------'
+        run: echo ""
+
+      - name: "Should Succedd: Actor is not member of team but is in list of allowed users"
+        if: always()
+        id: should-succeed-too
+        continue-on-error: true
+        uses: ./
+        with:
+          github-actor: im-super-duper-user
+          github-organization: im-open
+          github-team-slugs: |
+            [
+              "infra-purple"
+            ]
+          github-usernames: |
+            [
+              "im-super-duper-user"
+            ]
+          github-token: ${{ secrets.PIPELINE_BOT_PAT }}
+
+      - name: Then the outcome should be failure too
+        if: always()
+        run: ./test/assert-values-match.sh --name "step outcome" --expected "success" --actual "${{ steps.should-succeed-too.outcome }}"        
