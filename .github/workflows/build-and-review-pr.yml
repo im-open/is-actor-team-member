@@ -153,7 +153,7 @@ jobs:
       - name: '-------------------------------------------------------------------------------------------------------'
         run: echo ""
 
-      - name: "Should Succedd: Actor is not member of team but is in list of allowed users"
+      - name: "Should Succeed: Actor is not member of team but is in list of allowed users"
         if: always()
         id: should-succeed-too
         continue-on-error: true
