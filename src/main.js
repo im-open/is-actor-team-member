@@ -11,15 +11,8 @@ async function run() {
   const token = core.getInput('github-token', requiredArgOptions);
   const authorizedTeamsInput = core.getInput('github-team-slugs', requiredArgOptions).toLowerCase();
   const authorizedTeams = JSON.parse(authorizedTeamsInput);
-
   const authorizedUsersInput = core.getInput('github-usernames');
-
-  // check if authorizedUsersInput is empty
-  let authorizedUsers = [];
-  if (authorizedUsersInput) {
-    authorizedUsers = JSON.parse(authorizedUsersInput.toLowerCase());
-  }
-
+  const authorizedUsers = JSON.parse(authorizedUsersInput.toLowerCase());
   const githubActor = core.getInput('github-actor', requiredArgOptions);
   const githubOrg = core.getInput('github-organization', requiredArgOptions);
   const octokit = github.getOctokit(token);
