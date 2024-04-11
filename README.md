@@ -25,7 +25,7 @@ This template can be used to quickly start a new custom js action repository.  C
 | `github-organization` | true        |         | The GitHub organization to check for membership                    |
 | `github-team-slugs`   | true        |         | The GitHub team slugs to check for membership                      |
 | `github-token`        | true        |         | The GitHub token to use for authentication                         |
-| `github-usernames`    | false       |         | If github username is not part of team, they can be specified here |              
+| `github-usernames`    | false       |         | If github username is not part of team, they can be specified here |
 
 ## Usage Examples
 
@@ -34,10 +34,10 @@ jobs:
   deploy-to-prod:
     runs-on: [self-hosted, im-linux]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Check if Actor is a Member of one of the teams
-        uses: im-open/is-actor-team-member@v1.1.0
+        uses: im-open/is-actor-team-member@v1.2.0
         with:
           github-actor: ${{ github.actor }}
           github-organization: my-github-org
@@ -51,7 +51,7 @@ jobs:
               "super-duper-user"
             ]
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Deploy the Code
         run: |
 ```
@@ -80,7 +80,7 @@ This repo uses [git-version-lite] in its workflows to examine commit messages to
 
 ### Source Code Changes
 
-The files and directories that are considered source code are listed in the `files-with-code` and `dirs-with-code` arguments in both the [build-and-review-pr] and [increment-version-on-merge] workflows.  
+The files and directories that are considered source code are listed in the `files-with-code` and `dirs-with-code` arguments in both the [build-and-review-pr] and [increment-version-on-merge] workflows.
 
 If a PR contains source code changes, the README.md should be updated with the latest action version and the action should be recompiled.  The [build-and-review-pr] workflow will ensure these steps are performed when they are required.  The workflow will provide instructions for completing these steps if the PR Author does not initially complete them.
 
