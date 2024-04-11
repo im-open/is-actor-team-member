@@ -73,8 +73,8 @@ jobs:
       #--------------------------------------
       # Setup
       #--------------------------------------
-      - uses: actions/checkout@v3
-              
+      - uses: actions/checkout@v4
+
       #--------------------------------------
       # Actor is in list of allowed users
       #--------------------------------------
@@ -100,7 +100,7 @@ jobs:
       - name: Then the outcome should be success
         if: always()
         run: ./test/assert-values-match.sh --name "step outcome" --expected "success" --actual "${{ steps.should-succeed.outcome }}"
-              
+
       #--------------------------------------
       # Actor is NOT in list of allowed users
       #--------------------------------------
@@ -173,4 +173,4 @@ jobs:
 
       - name: Then the outcome should be failure too
         if: always()
-        run: ./test/assert-values-match.sh --name "step outcome" --expected "success" --actual "${{ steps.should-succeed-too.outcome }}"        
+        run: ./test/assert-values-match.sh --name "step outcome" --expected "success" --actual "${{ steps.should-succeed-too.outcome }}"

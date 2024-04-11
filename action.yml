@@ -17,8 +17,8 @@ inputs:
     description: The GitHub token to use for authentication
   github-usernames:
     required: false
-    description: If user is not a member of the team, their username can be provided. This is good for one-off and temporary assignments.   
+    description: If user is not a member of the team, their username can be provided. This is good for one-off and temporary assignments.
 
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
