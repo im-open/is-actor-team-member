@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "esbuild": "^0.19.9",
-    "install": "^0.13.0",
+      "undici": "5.28.4",
     "prettier": "^2.7.1"
   }
 }
