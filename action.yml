@@ -20,5 +20,5 @@ inputs:
     description: If user is not a member of the team, their username can be provided. This is good for one-off and temporary assignments.
 
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'dist/index.js'
